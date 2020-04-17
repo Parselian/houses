@@ -1,0 +1,87 @@
+@media (min-width: 1200px)
+  .container
+    max-width: 1170px
+
+@media (max-width: 1199px)
+  .header
+    &__time
+      margin-right: 100px
+  .main
+    background-position-x: 38%
+    &__features
+      width: 400px
+
+@media (max-width: 991px)
+  .header
+    &__time
+      text-align: right
+      margin-right: 25px
+      &-icon
+        right: -30px
+    &__contacts
+      &-text
+        display: none
+  .main
+    background-position-x: 28%
+
+@media (max-width: 767px)
+  .header
+    &__contacts
+      .button
+        &__text
+          display: none
+        &__icon
+          display: block
+  .main
+    background-position-x: 20%
+    &__info
+      flex-direction: column
+      align-items: center
+    &__text
+      text-align: center
+      &-title, &-subtitle, &-text
+        margin-bottom: 30px
+    &-form
+      margin-bottom: 40px
+    &__features
+      width: auto
+
+@media (max-width: 576px)
+  .logo
+    &__text
+      display: none
+
+@media (max-width: 460px)
+  .main
+    &__features
+      flex-wrap: wrap
+      justify-content: center
+      align-items: center
+      &-feature
+        text-align: center
+        min-width: 180px
+        margin-bottom: 30px
+        &:last-child
+          margin-bottom: 0
+
+@media (max-width: 380px)
+  .header
+    &__time
+      display: none
+  .main
+    &__text
+      margin-bottom: 60px
+    &-form
+      margin-bottom: 100px
+      height: auto
+      &__bg
+        width: 320px
+        height: 370px
+        transform: translate(-160px, -185px)
+      &__title
+        margin-top: 0px
+        font-size: 14px
+      &__input
+        padding: 10px
+      &__button
+        padding: 14px 26px

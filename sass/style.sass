@@ -1,0 +1,54 @@
+@import 'variables.sass'
+
+body
+  font-family: 'Geometria', sans-serif
+  color: $text-color
+
+.text
+  &_bold
+    font-family: 'Geometria Bold'
+  &_light
+    font-family: 'Geometria'
+
+.line-break
+  display: block
+
+.button
+  padding: 18px 30px
+  position: relative
+  font-family: 'Geometria Bold'
+  font-size: 12px
+  letter-spacing: 0.12px
+  color: $alt-text-color
+  border-radius: 5px
+  background-image: linear-gradient(-221deg, $gradient-color-1 0%, $gradient-color-2 100%)
+  cursor: pointer
+  &__icon
+    display: none
+    width: 18px
+    height: 18px
+    fill: $alt-text-color
+
+.logo
+  display: flex
+  align-items: center
+  &__img
+    margin-right: 20px
+    width: 80px
+    height: 50px
+    background-size: cover
+  &__text
+    font-family: 'Geometria'
+    font-size: 16px
+    text-transform: uppercase
+    letter-spacing: 0.16px
+
+.form
+  &__input
+    border: 1px solid $border-color
+    border-radius: 5px
+
+
+@import 'header.sass'
+@import 'main.sass'
+@import 'media.sass'
