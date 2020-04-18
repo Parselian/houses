@@ -4,6 +4,9 @@ body
   font-family: 'Geometria', sans-serif
   color: $text-color
 
+section
+  padding: 100px 0
+
 .text
   &_bold
     font-family: 'Geometria Bold'
@@ -12,6 +15,12 @@ body
 
 .line-break
   display: block
+
+.title
+  margin-bottom: 60px
+  font-family: 'Geometria Bold'
+  font-size: 30px
+  text-align: center
 
 .button
   padding: 18px 30px
@@ -44,11 +53,44 @@ body
     letter-spacing: 0.16px
 
 .form
+  &__title
+    font-family: 'Geometria Medium'
   &__input
     border: 1px solid $border-color
     border-radius: 5px
 
+.slider
+  position: relative
+  overflow: hidden
+  position: relative
+  &__wrap
+    display: flex
+  &__arrow
+    padding: 10px 14px
+    position: absolute
+    width: 40px
+    height: 40px
+    top: 50%
+    transform: translateY(-20px)
+    background-color: $alt-text-color
+    cursor: pointer
+    &_left
+      left: 0
+    &_right
+      right: 0
+  &__slide
+    margin-right: 30px
+    display: block
+    max-width: 360px
+    width: 32%
+    &:last-child
+      margin-right: 0
+
 
 @import 'header.sass'
 @import 'main.sass'
+@import 'portfolio.sass'
+@import 'projects.sass'
+@import 'materials.sass'
+@import 'features.sass'
 @import 'media.sass'
