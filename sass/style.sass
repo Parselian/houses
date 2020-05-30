@@ -7,6 +7,41 @@ body
 section
   padding: 100px 0
 
+video::-webkit-media-controls-volume-slider-container,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-timeline-container,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-seek-back-button,
+video::-webkit-media-controls-seek-forward-button,
+video::-webkit-media-controls-fullscreen-button,
+video::-webkit-media-controls-picture-in-picture-button,
+video::-webkit-media-controls-rewind-button,
+video::-webkit-media-controls-return-to-realtime-button,
+video::-webkit-media-controls-toggle-closed-captions-button,
+  display: none !important
+
+video::-webkit-media-controls-panel
+  position: absolute
+  width: 100%
+  height: 100%
+  top: -50%
+  transform: translateY(20px)
+  background: none
+
+video::-webkit-media-controls-play-button
+  position: absolute
+  top: 50%
+  left: 50%
+  opacity: 1
+  width: 40px
+  height: 40px
+  transform: translate(-20px, -20px)
+  background: url('../img/video-review/play-button.png') center no-repeat
+  background-size: contain
+
 .text
   &_bold
     font-family: 'Geometria Bold'
@@ -17,9 +52,17 @@ section
   display: block
 
 .title
-  margin-bottom: 60px
+  margin:
+    left: auto
+    right: auto
+    bottom: 60px
+  max-width: 770px
   font-family: 'Geometria Bold'
   font-size: 30px
+  text-align: center
+
+.subtitle
+  font-size: 20px
   text-align: center
 
 .button
@@ -91,6 +134,8 @@ section
 @import 'main.sass'
 @import 'portfolio.sass'
 @import 'projects.sass'
+@import 'guarranty.sass'
 @import 'materials.sass'
 @import 'features.sass'
+@import 'video.sass'
 @import 'media.sass'
