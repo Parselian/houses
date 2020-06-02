@@ -459,14 +459,16 @@
       
       <div class="video__columns">
         <div class="video__mediaplayer">
-          <video controls disablePictureInPicture controlsList="nodownload"
+          <video controlsList="nodownload"
             poster="img/video-review/preview.jpg">
-          <source src="https://www.youtube.com/watch?v=3CeYsZdvR64" type="video/mp4">
+            <source src="videos/video.webm" type="video/webm">
+            <source src="videos/video.mp4" type="video/mp4">
+            <source src="videos/video.ogg" type="video/ogv">
           </video>
+
+          <div class="video__mediaplayer-playbutton"></div>
         </div>
         <!-- /.video__mediaplayer -->
-        <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
-        </iframe>
 
         <div class="video__text">
           <h3 class="video__text-title">
@@ -496,6 +498,97 @@
   </section>
   <!-- /.video -->
 
+  <section class="team">
+    <div class="container">
+      <h2 class="title team__title">
+        Ключевые лица нашей компании
+      </h2>
+      <!-- /.title team__title -->
+
+      <div class="team__cards">
+        <div class="team__card">
+          <div class="hexagon team__card-img">
+            <div class="hexagon-in1">
+              <img src="img/team/photo.jpg" alt="фото" class="hexagon-in2">
+            </div>
+            <!-- /.hexagon-in1 -->
+          </div>
+          <!-- /.hexagon team__card-img -->
+          <h3 class="team__card-title">Григорян Алексей</h3>
+          <!-- /.team__card-title -->
+          <div class="team__card-subtitle">Главный инженер</div>
+          <!-- /.team__card-subtitle -->
+          <p class="team__card-info">
+            <span class="line-break">Образование - БГТУ.</span> 
+            <span class="line-break">Стаж с 2004 года.</span> 
+            <span class="line-break">
+              Принимал участие в проектировании и монтаже более 200 объектов в России и за рубежом.
+            </span>
+            <span class="line-break">
+              Внештатный консультант пяти действующих строительных компаний Москвы
+            </span>
+          </p>
+          <!-- /.team__card-info -->
+        </div>
+        <!-- /.team__card -->
+
+        <div class="team__card">
+          <div class="hexagon team__card-img">
+            <div class="hexagon-in1">
+              <img src="img/team/photo-2" alt="фото" class="hexagon-in2">
+            </div>
+
+          </div>
+          <!-- /.hexagon team__card-img -->
+          <h3 class="team__card-title">Григорян Алексей</h3>
+          <!-- /.team__card-title -->
+          <div class="team__card-subtitle">Главный инженер</div>
+          <!-- /.team__card-subtitle -->
+          <p class="team__card-info">
+            <span class="line-break">Образование - БГТУ.</span>
+            <span class="line-break">Стаж с 2004 года.</span>
+            <span class="line-break">
+              Принимал участие в проектировании и монтаже более 200 объектов в России и за рубежом.
+            </span>
+            <span class="line-break">
+              Внештатный консультант пяти действующих строительных компаний Москвы
+            </span>
+          </p>
+          <!-- /.team__card-info -->
+        </div>
+        <!-- /.team__card -->
+
+        <div class="team__card">
+          <div class="hexagon team__card-img">
+            <div class="hexagon-in1">
+              <img src="img/team/photo.jpg" alt="фото" class="hexagon-in2">
+            </div>
+          </div>
+          <!-- /.hexagon team__card-img -->
+          <h3 class="team__card-title">Григорян Алексей</h3>
+          <!-- /.team__card-title -->
+          <div class="team__card-subtitle">Главный инженер</div>
+          <!-- /.team__card-subtitle -->
+          <p class="team__card-info">
+            <span class="line-break">Образование - БГТУ.</span>
+            <span class="line-break">Стаж с 2004 года.</span>
+            <span class="line-break">
+              Принимал участие в проектировании и монтаже более 200 объектов в России и за рубежом.
+            </span>
+            <span class="line-break">
+              Внештатный консультант пяти действующих строительных компаний Москвы
+            </span>
+          </p>
+          <!-- /.team__card-info -->
+        </div>
+        <!-- /.team__card -->
+      </div>
+      <!-- /.team__cards -->
+    </div>
+    <!-- /.container -->
+  </section>
+  <!-- /.team -->
+
   <footer class="header">
     <div class="header__wrap container">
       <div class="logo">
@@ -518,5 +611,7 @@
       <stop offset="100%" stop-color="#f86c26" />
     </linearGradient>
   </svg>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
