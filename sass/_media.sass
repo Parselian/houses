@@ -22,6 +22,9 @@
         left: -22%
     &__feature
       margin-bottom: 60px
+  .contacts
+    &__title
+      font-size: 20px
 
 @media (max-width: 991px)
   .title
@@ -111,6 +114,12 @@
       &-img
         width: 94px
         height: 110px
+  .contacts
+    &__block
+      margin-left: 50px
+    &__list
+      &-item
+        margin-bottom: 30px
 
 @media (max-width: 767px)
   section
@@ -210,6 +219,22 @@
       left: 0
       background-color: rgba(0, 0, 0, 0.5)
       z-index: -1
+  .contacts
+    flex-direction: column
+    &__map
+      width: 100%
+      order: 2
+    &__block
+      margin:
+        left: auto
+        right: auto
+      padding:
+        top: 60px 
+        left: 15px
+        right: 15px
+      max-width: 540px
+      width: 100%
+      order: 1
 
 
 @media (max-width: 576px)
