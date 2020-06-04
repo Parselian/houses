@@ -12,6 +12,54 @@
   <title>Document</title>
 </head>
 <body>
+
+  <section class="burger burger_show">
+    <svg class="burger__button burger__button_show">
+      <use xlink:href="sprites/sprite.svg#arrow-left"></use>
+    </svg>
+
+    <ul class="burger__menu">
+      <li class="burger__menu-item">
+        <a href="portfolio" class="burger__menu-link">Портфолио</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="projects" class="burger__menu-link">Проекты</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="guarranty" class="burger__menu-link">Гарантия</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="materials" class="burger__menu-link">Материалы </a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="#features" class="burger__menu-link">Преимущества</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="#video" class="burger__menu-link">Образование</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="#team" class="burger__menu-link">Команда</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="#faq" class="burger__menu-link">ЧаВО</a>
+      </li>
+      <!-- /.burger__menu-item -->
+      <li class="burger__menu-item">
+        <a href="#request" class="burger__menu-link">Оставить заявку</a>
+      </li>
+      <!-- /.burger__menu-item -->
+    </ul>
+    <!-- /.burger__menu -->
+  </section>
+  <!-- /.burger -->
+
   <header class="header">
     <div class="header__wrap container">
       <div class="logo">
@@ -45,12 +93,12 @@
             </a> 
           </div>
           <!-- /.header__contacts-text -->
-          <button type="submit" class="button header__contacts-button">
+          <a href="#request" class="button header__contacts-button">
             <span class="button__text">Заказать звонок</span>
             <svg class="button__icon">
               <use xlink:href="./sprites/sprite.svg#phone"></use>
             </svg>
-          </button>
+          </a>
           <!-- /.button header__contacts-button -->
         </div>
         <!-- /.header__contacts -->
@@ -127,7 +175,7 @@
   </section>
   <!-- /.main -->
 
-  <section class="portfolio">
+  <section id="portfolio" class="portfolio">
     <div class="portfolio__wrap container">
       <h2 class="portfolio__title title">
         У нас есть уже готовые проекты
@@ -235,7 +283,7 @@
   </section>
   <!-- /.portfolio -->
 
-  <section class="projects">
+  <section id="projects" class="projects">
     <div class="projects__wrap container">
       <h2 class="projects__title title">
         Мы построим Вам дом по индивидуальному плану
@@ -317,7 +365,7 @@
   </section>
   <!-- /.projects -->
 
-  <section class="guarranty">
+  <section id="guarranty" class="guarranty">
     <div class="container guarranty__wrap">
       <h2 class="title guarranty__title">
         Гарантия 20 лет на качество строительства дома
@@ -335,7 +383,7 @@
   </section>
   <!-- /.guarranty -->
 
-  <section class="materials">
+  <section id="materials" class="materials">
     <div class="materials__wrap container">
       <h2 class="materials__title title">
         Мы построим для Вас дом
@@ -386,7 +434,7 @@
   </section>
   <!-- /.materials -->
 
-  <section class="features">
+  <section id="features" class="features">
     <div class="features__wrap container">
       <h2 class="features__title title">
         Мы всегда укладываемся в сроки
@@ -452,7 +500,7 @@
   </section>
   <!-- /.features -->
 
-  <section class="video">
+  <section id="video" class="video">
     <div class="container">
       <h2 class="title">
         Все сотрудники в нашем штате имеют высшее инженерно-строительное образование
@@ -500,7 +548,7 @@
   </section>
   <!-- /.video -->
 
-  <section class="team">
+  <section id="team" class="team">
     <div class="container">
       <h2 class="title team__title">
         Ключевые лица нашей компании
@@ -591,7 +639,7 @@
   </section>
   <!-- /.team -->
 
-  <section class="faq">
+  <section id="faq" class="faq">
     <div class="container">
       <h2 class="title faq__title">Часто задаваемые вопросы</h2>
       <!-- /.title faq__title -->
@@ -654,7 +702,7 @@
   </section>
   <!-- /.faq -->
 
-  <section class="request">
+  <section id="request" class="request">
     <div class="container">
       <form action="#" class="projects-form form">
         <h2 class="projects-form__title form__title">
@@ -680,7 +728,7 @@
     </div>
   </section>
 
-  <section class="contacts">
+  <section id="contacts" class="contacts">
     <div id="map" class="contacts__map"></div>
     <!-- /#map.contacts__map -->
 
@@ -735,6 +783,22 @@
     <!-- /.header__wrap container -->
   </footer>
   <!-- /.footer -->
+
+  <section class="popup popup-thanks">
+    <div class="popup__block">
+      <h2 class="title popup__title">Спасибо!</h2>
+      <!-- /.title popup__title -->
+
+      <div class="subtitle popup__subtitle">
+        Наш менеджер с вами свяжется в течении 15 минут.
+      </div>
+      <!-- /.subtitle popup__subtitle -->
+      <button class="button popup__button">Закрыть</button>
+      <!-- /.popup__button -->
+    </div>
+    <!-- /.popup__block -->
+  </section>
+  <!-- /.popup popup-thanks -->
 
   <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
     <linearGradient id="icon-gradient" x2="1" y2="1">

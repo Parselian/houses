@@ -1,6 +1,7 @@
 @import 'variables.sass'
 
 body
+  position: relative
   font-family: 'Geometria', sans-serif
   color: $text-color
 
@@ -54,7 +55,6 @@ video::-webkit-media-controls-play-button
 ::-webkit-scrollbar-thumb 
   border-radius: 3px
   background-color: #f86826
-
 
 .text
   &_bold
@@ -154,7 +154,6 @@ video::-webkit-media-controls-play-button
   -ms-transform: rotate(120deg)
   -o-transform: rotate(120deg)
   transform: rotate(120deg)
-  cursor: pointer
   .hexagon-in1 
     overflow: hidden
     width: 100%
@@ -175,7 +174,7 @@ video::-webkit-media-controls-play-button
     -o-transform: rotate(-60deg)
     transform: rotate(-60deg)
 
-
+@import 'burger.sass'
 @import 'header.sass'
 @import 'main.sass'
 @import 'portfolio.sass'
@@ -188,4 +187,5 @@ video::-webkit-media-controls-play-button
 @import 'faq.sass'
 @import 'request.sass'
 @import 'contacts.sass'
+@import 'popup.sass'
 @import 'media.sass'

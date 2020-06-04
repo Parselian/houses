@@ -4,8 +4,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const controlVideoplayer = () => {
     const playerWrap = document.querySelector('.video__mediaplayer'),
-          player = playerWrap.querySelector('video'),
-          playerBtn = playerWrap.querySelector('.video__mediaplayer-playbutton');
+        player = playerWrap.querySelector('video'),
+        playerBtn = playerWrap.querySelector('.video__mediaplayer-playbutton');
 
     playerWrap.addEventListener('click', e => {
       const target = e.target;
