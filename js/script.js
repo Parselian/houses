@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   controlVideoplayer();
 
   const mapInit = () => {
+
     ymaps.ready(init);
 
     function init () {
@@ -52,7 +53,10 @@ window.addEventListener('DOMContentLoaded', () => {
       myMap.controls.remove('zoomControl');
       myMap.controls.remove('routeButtonControl');
       myMap.controls.remove('rulerControl');
+
+      myMap.behaviors.disable(['drag']);
     }
-  }
+
+  };
   mapInit();
 });

@@ -114,6 +114,12 @@
       &-img
         width: 94px
         height: 110px
+  .request
+    .form
+      &__title
+        text-align: center
+      &__subtitle
+        text-align: center
   .contacts
     &__block
       margin-left: 50px
@@ -167,6 +173,7 @@
       margin-bottom: 40px
     &__subtitle
       margin-bottom: 40px
+      text-align: center
     &-form
       &__input
         padding: 18px 26px
@@ -196,6 +203,10 @@
       margin:
         right: 0
         bottom: 30px
+      height: 240px
+      &::before
+        width: 140%
+        height: 90%
   .team
     &__card
       &s
@@ -220,6 +231,7 @@
       background-color: rgba(0, 0, 0, 0.5)
       z-index: -1
   .contacts
+    height: auto
     flex-direction: column
     &__map
       width: 100%
@@ -228,10 +240,7 @@
       margin:
         left: auto
         right: auto
-      padding:
-        top: 60px 
-        left: 15px
-        right: 15px
+      padding: 60px 15px
       max-width: 540px
       width: 100%
       order: 1
@@ -321,6 +330,9 @@
           bottom: 20px
 
 @media (max-width: 400px)
+  .portfolio
+    &__cards
+      width: 100%
   .slider
     width: 100%
 
@@ -345,3 +357,6 @@
         padding: 10px
       &__button
         padding: 14px 26px
+  .portfolio
+    &__menu
+      width: 100%
