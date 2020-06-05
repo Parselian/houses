@@ -32,6 +32,42 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   smoothAnchorScroll();
 
+  const togglePortfolio = () => {
+    const catMenu = document.querySelector('.portfolio__menu'),
+          catMenuItems = catMenu.querySelectorAll('.portfolio__menu-item'),
+          portfolioCards = document.querySelectorAll('.portfolio__card');
+
+    function toggleActiveCategory(target) {
+      catMenuItems.forEach(item => {
+        if (item.matches('.portfolio__menu-item_active')) {
+          item.classList.remove('portfolio__menu-item_active');
+        }
+      });
+
+      target.classList.add('portfolio__menu-item_active');
+    }
+
+    function showChoosenCatCards(data) {
+      portfolioCards.forEach(item => {
+        item.classList.add('portfolio__card_hidden');
+        
+        if (item.dataset.cat == data) {
+          item.classList.remove('portfolio__card_hidden');
+        }
+      });
+    }
+    
+    catMenu.addEventListener('click', (e) => {
+      const target = e.target;
+
+      if (target.closest('.portfolio__menu-item')) {
+        toggleActiveCategory(target);
+        showChoosenCatCards(target.dataset.cat);
+      }
+    });
+  };
+  togglePortfolio();
+
   const sliderCarousel = (wrap) => {
     const slider = document.querySelector(wrap),
           sliderWrap = slider.querySelector('.slider__wrap'),
@@ -43,8 +79,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const target = e.target,
             scrolledWidth = slides[0].getBoundingClientRect().width + 30;
 
-
-      if (target.closest('.slider__arrow_right')) {
+      function slideToLeft() {
         if (counter < slides.length - 3) {
           counter++;
 
@@ -53,18 +88,25 @@ window.addEventListener('DOMContentLoaded', () => {
           counter = 0;
           sliderWrap.style.transform = 'translateX(0)';
         }
-      } else if (target.closest('.slider__arrow_left')) {
+      }
+
+      function slideToRight() {
         if (counter > 0) {
           counter--;
 
-          sliderWrap.style.transform = `translateX(${scrolledWidth * counter}px)`;
+          sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
         } else if (counter === 0) {
           counter = slides.length - 3;
           sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
         }
       }
-      console.log(counter);
-    })
+
+      if (target.closest('.slider__arrow_right')) {
+        slideToLeft();
+      } else if (target.closest('.slider__arrow_left')) {
+        slideToRight();
+      }
+    });
     
   };
   sliderCarousel('.projects-slider');
