@@ -122,6 +122,8 @@ video::-webkit-media-controls-play-button
   position: relative
   &__wrap
     display: flex
+    transition: transform .3s
+    will-change: transform
   &__arrow
     padding: 10px 14px
     position: absolute
@@ -131,6 +133,7 @@ video::-webkit-media-controls-play-button
     transform: translateY(-20px)
     background-color: $alt-text-color
     cursor: pointer
+    z-index: 99999
     &_left
       left: 0
     &_right

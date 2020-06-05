@@ -13,26 +13,26 @@
 </head>
 <body>
 
-  <section class="burger burger_show">
-    <svg class="burger__button burger__button_show">
+  <section class="burger">
+    <svg class="burger__button">
       <use xlink:href="sprites/sprite.svg#arrow-left"></use>
     </svg>
 
     <ul class="burger__menu">
       <li class="burger__menu-item">
-        <a href="portfolio" class="burger__menu-link">Портфолио</a>
+        <a href="#portfolio" class="burger__menu-link">Портфолио</a>
       </li>
       <!-- /.burger__menu-item -->
       <li class="burger__menu-item">
-        <a href="projects" class="burger__menu-link">Проекты</a>
+        <a href="#projects" class="burger__menu-link">Проекты</a>
       </li>
       <!-- /.burger__menu-item -->
       <li class="burger__menu-item">
-        <a href="guarranty" class="burger__menu-link">Гарантия</a>
+        <a href="#guarranty" class="burger__menu-link">Гарантия</a>
       </li>
       <!-- /.burger__menu-item -->
       <li class="burger__menu-item">
-        <a href="materials" class="burger__menu-link">Материалы </a>
+        <a href="#materials" class="burger__menu-link">Материалы </a>
       </li>
       <!-- /.burger__menu-item -->
       <li class="burger__menu-item">
@@ -138,8 +138,8 @@
             вашего дома уже сегодня!
           </div>
           <!-- /.main-form__title -->
-          <input type="text" class="form__input main-form__input" placeholder="Ваше имя">
-          <input type="text" class="form__input main-form__input" placeholder="Ваш телефон">
+          <input type="text" class="form__input main-form__input" placeholder="Ваше имя" required>
+          <input type="text" class="form__input main-form__input" placeholder="Ваш телефон" required>
           <button class="button main-form__button">Заказать смету</button>
           <!-- /.button main-form__button -->
         </form>
@@ -306,6 +306,9 @@
           <img src="./img/projects/house-1.jpg" alt="Дом" class="slider__slide">
           <img src="./img/projects/house-2.jpg" alt="Дом" class="slider__slide">
           <img src="./img/projects/house-3.jpg" alt="Дом" class="slider__slide">
+          <img src="./img/projects/house-1.jpg" alt="Дом" class="slider__slide">
+          <img src="./img/projects/house-2.jpg" alt="Дом" class="slider__slide">
+          <img src="./img/projects/house-3.jpg" alt="Дом" class="slider__slide">
         </div>
 
         <svg class="slider__arrow slider__arrow_right">
@@ -320,7 +323,7 @@
       </div>
       <!-- /.projects__subtitle -->
 
-      <div class="projects-slider slider">
+      <div class="projects-slider projects-slider_2 slider">
         <svg class="slider__arrow slider__arrow_left">
           <use xlink:href="./sprites/sprite.svg#arrow-left"></use>
         </svg>
@@ -329,7 +332,10 @@
         <div class="slider__wrap">
           <img src="./img/projects/house-4.jpg" alt="Дом" class="slider__slide">
           <img src="./img/projects/house-5.jpg" alt="Дом" class="slider__slide">
-          <img src="./img/projects/house-6.jpg" alt="Дом" class="slider__slide">       
+          <img src="./img/projects/house-6.jpg" alt="Дом" class="slider__slide">
+          <img src="./img/projects/house-4.jpg" alt="Дом" class="slider__slide">
+          <img src="./img/projects/house-5.jpg" alt="Дом" class="slider__slide">
+          <img src="./img/projects/house-6.jpg" alt="Дом" class="slider__slide">
         </div>
         <!-- /.slider__wrap -->
 
@@ -645,6 +651,7 @@
       <!-- /.title faq__title -->
       <div class="subtitle faq__subtitle">На Ваши вопросы ответит Евтушенко Дмитрий</div>
       <!-- /.faq__subtitle -->
+
       <ol class="faq__wrap">
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Как заказать деталь правильно?</div>
@@ -656,42 +663,54 @@
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Что делать, если запчасть не понадобилась?</div>
           <!-- /.faq__wrap-question -->
-          <p class="faq__wrap-answer"></p>
+          <p class="faq__wrap-answer">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nam qui ut harum beatae veritatis alias fugiat cum dicta facere quos id maxime delectus quas voluptates eius, perferendis soluta fuga!
+          </p>
           <!-- /.faq__wrap-answer -->
         </li>
         <!-- /.faq__wrap-item -->
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Как долго доставляется деталь?</div>
           <!-- /.faq__wrap-question -->
-          <p class="faq__wrap-answer"></p>
+          <p class="faq__wrap-answer">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nam qui ut harum beatae veritatis alias fugiat cum dicta facere quos id maxime delectus quas voluptates eius, perferendis soluta fuga!
+          </p>
           <!-- /.faq__wrap-answer -->
         </li>
         <!-- /.faq__wrap-item -->
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Можете ли Вы установить деталь?</div>
           <!-- /.faq__wrap-question -->
-          <p class="faq__wrap-answer"></p>
+          <p class="faq__wrap-answer">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nam qui ut harum beatae veritatis alias fugiat cum dicta facere quos id maxime delectus quas voluptates eius, perferendis soluta fuga!
+          </p>
           <!-- /.faq__wrap-answer -->
         </li>
         <!-- /.faq__wrap-item -->
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Какой транспортной компанией доставляется деталь?</div>
           <!-- /.faq__wrap-question -->
-          <p class="faq__wrap-answer"></p>
+          <p class="faq__wrap-answer">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nam qui ut harum beatae veritatis alias fugiat cum dicta facere quos id maxime delectus quas voluptates eius, perferendis soluta fuga!
+          </p>
           <!-- /.faq__wrap-answer -->
         </li>
         <!-- /.faq__wrap-item -->
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Как долго доставляется деталь?</div>
           <!-- /.faq__wrap-question -->
-          <p class="faq__wrap-answer"></p>
+          <p class="faq__wrap-answer">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nam qui ut harum beatae veritatis alias fugiat cum dicta facere quos id maxime delectus quas voluptates eius, perferendis soluta fuga!
+          </p>
           <!-- /.faq__wrap-answer -->
         </li>
         <!-- /.faq__wrap-item -->
         <li class="faq__wrap-item">
           <div class="faq__wrap-question">Что делать, если запчасть не понадобилась?</div>
           <!-- /.faq__wrap-question -->
-          <p class="faq__wrap-answer"></p>
+          <p class="faq__wrap-answer">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nam qui ut harum beatae veritatis alias fugiat cum dicta facere quos id maxime delectus quas voluptates eius, perferendis soluta fuga!
+          </p>
           <!-- /.faq__wrap-answer -->
         </li>
         <!-- /.faq__wrap-item -->
