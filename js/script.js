@@ -32,9 +32,10 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   smoothAnchorScroll();
 
-  const togglePortfolio = () => {
+  const portfolioSlider = () => {
     const catMenu = document.querySelector('.portfolio__menu'),
           catMenuItems = catMenu.querySelectorAll('.portfolio__menu-item'),
+          portfolioCardsWrap = document.querySelector('.portfolio__cards-wrap'),
           portfolioCards = document.querySelectorAll('.portfolio__card');
 
     function toggleActiveCategory(target) {
@@ -47,26 +48,49 @@ window.addEventListener('DOMContentLoaded', () => {
       target.classList.add('portfolio__menu-item_active');
     }
 
-    function showChoosenCatCards(data) {
-      portfolioCards.forEach(item => {
-        item.classList.add('portfolio__card_hidden');
-        
-        if (item.dataset.cat == data) {
-          item.classList.remove('portfolio__card_hidden');
+    function splittingIntoBlocks (dataset = 'default') {
+      let assembledBlock = document.createElement('div'),
+          counter = 0;
+
+      assembledBlock.classList.add('portfolio__cards-group');
+
+      /* Remove all portfolio cards from a page */
+      while (portfolioCardsWrap.firstChild) {
+        portfolioCardsWrap.removeChild(portfolioCardsWrap.firstChild);
+      }
+      
+      /* Splitting cards on a groups */
+      for(let i = 0; i < portfolioCards.length; i++) {
+        if (dataset === portfolioCards[i].dataset.cat || dataset === 'default') {
+          assembledBlock.insertAdjacentElement('beforeend', portfolioCards[i]);
+          counter++;
         }
-      });
+
+        if (portfolioCards.length - i <= 1 || counter === 3){
+          if (assembledBlock.childNodes.length !== 0) {
+            portfolioCardsWrap.insertAdjacentElement('beforeend', assembledBlock);
+          }
+
+          assembledBlock = document.createElement('div');
+          assembledBlock.classList.add('portfolio__cards-group');
+
+          counter = 0;
+        }
+      }
+
     }
+    splittingIntoBlocks();
     
     catMenu.addEventListener('click', (e) => {
       const target = e.target;
 
       if (target.closest('.portfolio__menu-item')) {
         toggleActiveCategory(target);
-        showChoosenCatCards(target.dataset.cat);
+        splittingIntoBlocks(target.dataset.cat);
       }
     });
   };
-  togglePortfolio();
+  portfolioSlider();
 
   const sliderCarousel = (wrap) => {
     const slider = document.querySelector(wrap),
