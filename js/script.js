@@ -36,7 +36,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const catMenu = document.querySelector('.portfolio__menu'),
           catMenuItems = catMenu.querySelectorAll('.portfolio__menu-item'),
           portfolioCardsWrap = document.querySelector('.portfolio__cards-wrap'),
-          portfolioCards = document.querySelectorAll('.portfolio__card');
+          portfolioCards = document.querySelectorAll('.portfolio__card'),
+          sliderDots = document.querySelector('.portfolio__controls-dots');
 
     function toggleActiveCategory(target) {
       catMenuItems.forEach(item => {
@@ -78,8 +79,32 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      addSliderDots();
     }
     splittingIntoBlocks();
+
+    function addSliderDots () {
+      const portfolioGroups = document.querySelectorAll('.portfolio__cards-group'),
+            sliderDot = document.createElement('li');
+      
+      sliderDot.classList.add('portfolio__controls-dot');
+
+      /* Remove all slider dots from a page */
+      while (sliderDots.firstChild) {
+        sliderDots.removeChild(sliderDots.firstChild);
+      }
+
+      /* Adding dots */
+      for (let i = 0; i < portfolioGroups.length; i++) {
+        let clonedDot = sliderDot.cloneNode();
+
+        if (i === 0) {
+          clonedDot.classList.add('portfolio__controls-dot_active');
+        }
+
+        sliderDots.insertAdjacentElement('beforeend', clonedDot);
+      }
+    }
     
     catMenu.addEventListener('click', (e) => {
       const target = e.target;
