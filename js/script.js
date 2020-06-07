@@ -33,13 +33,28 @@ window.addEventListener('DOMContentLoaded', () => {
   smoothAnchorScroll();
 
   const portfolioSlider = () => {
-    const catMenu = document.querySelector('.portfolio__menu'),
-          catMenuItems = catMenu.querySelectorAll('.portfolio__menu-item'),
+    const portfolio = document.querySelector('.portfolio'),
+          catMenuItems = portfolio.querySelectorAll('.portfolio__menu-item'),
           portfolioCardsWrap = document.querySelector('.portfolio__cards-wrap'),
           portfolioCards = document.querySelectorAll('.portfolio__card'),
-          sliderDots = document.querySelector('.portfolio__controls-dots');
+          sliderDotsWrap = document.querySelector('.portfolio__controls-dots');
 
-    function toggleActiveCategory(target) {
+    let counter = 0;
+
+    function checkWindowWidth (dataset) {
+      if (window.innerWidth > 991) {
+        splittingIntoBlocks(dataset, 3);
+      }
+      if (window.innerWidth <= 991) {
+        splittingIntoBlocks(dataset, 2);
+      } 
+      if (window.innerWidth <= 576) {
+        splittingIntoBlocks(dataset, 1);
+      } 
+    }
+    checkWindowWidth('economical');
+
+    function toggleActiveCategory(target) {      
       catMenuItems.forEach(item => {
         if (item.matches('.portfolio__menu-item_active')) {
           item.classList.remove('portfolio__menu-item_active');
@@ -47,9 +62,10 @@ window.addEventListener('DOMContentLoaded', () => {
       });
 
       target.classList.add('portfolio__menu-item_active');
+      portfolioCardsWrap.style.transform = `translateX(0)`;
     }
 
-    function splittingIntoBlocks (dataset = 'default') {
+    function splittingIntoBlocks (dataset = 'economical', breakpoint = 3) {
       let assembledBlock = document.createElement('div'),
           counter = 0;
 
@@ -62,12 +78,12 @@ window.addEventListener('DOMContentLoaded', () => {
       
       /* Splitting cards on a groups */
       for(let i = 0; i < portfolioCards.length; i++) {
-        if (dataset === portfolioCards[i].dataset.cat || dataset === 'default') {
+        if (dataset === portfolioCards[i].dataset.cat || dataset === null) {
           assembledBlock.insertAdjacentElement('beforeend', portfolioCards[i]);
           counter++;
         }
 
-        if (portfolioCards.length - i <= 1 || counter === 3){
+        if (portfolioCards.length - i <= 1 || counter === breakpoint){
           if (assembledBlock.childNodes.length !== 0) {
             portfolioCardsWrap.insertAdjacentElement('beforeend', assembledBlock);
           }
@@ -81,7 +97,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
       addSliderDots();
     }
-    splittingIntoBlocks();
 
     function addSliderDots () {
       const portfolioGroups = document.querySelectorAll('.portfolio__cards-group'),
@@ -90,8 +105,8 @@ window.addEventListener('DOMContentLoaded', () => {
       sliderDot.classList.add('portfolio__controls-dot');
 
       /* Remove all slider dots from a page */
-      while (sliderDots.firstChild) {
-        sliderDots.removeChild(sliderDots.firstChild);
+      while (sliderDotsWrap.firstChild) {
+        sliderDotsWrap.removeChild(sliderDotsWrap.firstChild);
       }
 
       /* Adding dots */
@@ -102,16 +117,62 @@ window.addEventListener('DOMContentLoaded', () => {
           clonedDot.classList.add('portfolio__controls-dot_active');
         }
 
-        sliderDots.insertAdjacentElement('beforeend', clonedDot);
+        sliderDotsWrap.insertAdjacentElement('beforeend', clonedDot);
       }
     }
+
+    function nextSlide(dotsValue) {
+      if (counter < dotsValue - 1) {
+        counter++;
+
+        portfolioCardsWrap.style.transform = `translateX(-${100 * counter}%)`;
+      } else if (counter === dotsValue - 1) {
+        counter = 0;
+        portfolioCardsWrap.style.transform = 'translateX(0)';
+      }
+
+      changeActiveDot(null, counter);
+    }
+
+    function prevSlide(dotsValue) {
+      if (counter > 0) {
+        counter--;
+
+        portfolioCardsWrap.style.transform = `translateX(-${100 * counter}%)`;
+      } else if (counter === 0) {
+        counter = dotsValue - 1;
+        portfolioCardsWrap.style.transform = `translateX(-${100 * counter}%)`;
+      }
+
+      changeActiveDot(null, counter);
+    }
+
+    function changeActiveDot(target, index) {
+      const sliderDots = sliderDotsWrap.querySelectorAll('.portfolio__controls-dot');
+
+      sliderDots.forEach((item, i) => {
+        item.classList.remove('portfolio__controls-dot_active');
+
+        if (index === i || target === item ) {
+          item.classList.add('portfolio__controls-dot_active');
+          portfolioCardsWrap.style.transform = `translateX(-${100 * i}%)`;
+        }
+      });
+    }
     
-    catMenu.addEventListener('click', (e) => {
-      const target = e.target;
+    portfolio.addEventListener('click', (e) => {
+      const target = e.target,
+            dotsValue = sliderDotsWrap.querySelectorAll('li').length;
 
       if (target.closest('.portfolio__menu-item')) {
         toggleActiveCategory(target);
-        splittingIntoBlocks(target.dataset.cat);
+        checkWindowWidth(target.dataset.cat);
+      } else if (target.closest('.portfolio__controls-arrow_left')) {
+        prevSlide(dotsValue);
+      } else if (target.closest('.portfolio__controls-arrow_right')) {
+        nextSlide(dotsValue);
+      } else if (target.closest('.portfolio__controls-dot')) {
+        changeActiveDot(target);
       }
     });
   };
@@ -120,35 +181,35 @@ window.addEventListener('DOMContentLoaded', () => {
   const sliderCarousel = (wrap) => {
     const slider = document.querySelector(wrap),
           sliderWrap = slider.querySelector('.slider__wrap'),
-          slides = sliderWrap.querySelectorAll('img');
+          slides = sliderWrap.querySelectorAll('img'),
+          scrolledWidth = slides[0].getBoundingClientRect().width + 30;
 
     let counter = 0;
 
+    function slideToLeft() {
+      if (counter < slides.length - 3) {
+        counter++;
+
+        sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
+      } else if (counter === slides.length - 3) {
+        counter = 0;
+        sliderWrap.style.transform = 'translateX(0)';
+      }
+    }
+
+    function slideToRight() {
+      if (counter > 0) {
+        counter--;
+
+        sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
+      } else if (counter === 0) {
+        counter = slides.length - 3;
+        sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
+      }
+    }
+
     slider.addEventListener('click', (e) => {
-      const target = e.target,
-            scrolledWidth = slides[0].getBoundingClientRect().width + 30;
-
-      function slideToLeft() {
-        if (counter < slides.length - 3) {
-          counter++;
-
-          sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
-        } else if (counter === slides.length - 3) {
-          counter = 0;
-          sliderWrap.style.transform = 'translateX(0)';
-        }
-      }
-
-      function slideToRight() {
-        if (counter > 0) {
-          counter--;
-
-          sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
-        } else if (counter === 0) {
-          counter = slides.length - 3;
-          sliderWrap.style.transform = `translateX(-${scrolledWidth * counter}px)`;
-        }
-      }
+      const target = e.target;
 
       if (target.closest('.slider__arrow_right')) {
         slideToLeft();
@@ -158,8 +219,8 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
   };
-  sliderCarousel('.projects-slider');
-  sliderCarousel('.projects-slider_2');
+  sliderCarousel('#carousel-1');
+  sliderCarousel('#carousel-2');
 
   const controlVideoplayer = () => {
     const playerWrap = document.querySelector('.video__mediaplayer'),
@@ -194,7 +255,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
   activateAccordeon();
-
 
   const mapInit = () => {
 
