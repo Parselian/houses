@@ -1,6 +1,10 @@
 'use-strict';
 
 window.addEventListener('DOMContentLoaded', () => {
+  const disablePreloader = () => {
+    document.querySelector('.preloader').classList.remove('preloader_visible');
+  };
+  disablePreloader();
 
   const toggleBurgerMenu = () => {
     const burger = document.querySelector('.burger'),
@@ -348,7 +352,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const mapInit = () => {
 
-    ymaps.ready(init);
+    // ymaps.ready(init);
 
     function init () {
       let myMap = new ymaps.Map("map", {
@@ -379,6 +383,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
       myMap.behaviors.disable(['drag']);
     }
+    init();
+
 
   };
   mapInit();
