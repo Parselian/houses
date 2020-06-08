@@ -138,8 +138,8 @@
             вашего дома уже сегодня!
           </div>
           <!-- /.main-form__title -->
-          <input type="text" name="main-form__name" class="form__input main-form__input" placeholder="Ваше имя" required>
-          <input type="text" name="main-form__phone" class="form__input main-form__input" placeholder="Ваш телефон" required>
+          <input id="main__input-name" type="text" name="main-form__name" class="form__input main-form__input" placeholder="Ваше имя" required>
+          <input id="main__input-phone" type="text" name="main-form__phone" class="form__input main-form__input" placeholder="Ваш телефон" required>
           <button class="button main-form__button">Заказать смету</button>
           <!-- /.button main-form__button -->
         </form>
@@ -482,8 +482,8 @@
         </div>
         <!-- /.projects-form__subtitle form__subtitle -->
         <div class="projects-form__inputs form__inputs">
-          <input type="text" class="projects-form__input form__input" placeholder="Ваше имя" required>
-          <input type="text" class="projects-form__input form__input" placeholder="Ваш телефон" required>
+          <input id="projects__input-name" type="text" name="" class="projects-form__input form__input" placeholder="Ваше имя" required>
+          <input id="projects__input-phone" type="text" class="projects-form__input form__input" placeholder="Ваш телефон" required>
           <button class="projects-form__button button">
             Заказать <span class="line-break">обратный звонок</span>
           </button>
@@ -641,8 +641,7 @@
       
       <div class="video__columns">
         <div class="video__mediaplayer">
-          <video controlsList="nodownload"
-            poster="img/video-review/preview.jpg" preload="none">
+          <video poster="img/video-review/preview.jpg" preload="none">
             <source src="videos/video.webm" type="video/webm">
             <source src="videos/video.mp4" type="video/mp4">
             <source src="videos/video.ogg" type="video/ogv">
@@ -860,8 +859,8 @@
         </div>
         <!-- /.projects-form__subtitle form__subtitle -->
         <div class="projects-form__inputs form__inputs">
-          <input type="text" class="projects-form__input form__input" placeholder="Ваше имя" required>
-          <input type="text" class="projects-form__input form__input" placeholder="Ваш телефон" required>
+          <input id="request__input-name" type="text" class="projects-form__input form__input" placeholder="Ваше имя" required>
+          <input id="request__input-phone" type="text" class="projects-form__input form__input" placeholder="Ваш телефон" required>
           <button class="projects-form__button button">
             Заказать <span class="line-break">обратный звонок</span>
           </button>
@@ -952,6 +951,7 @@
     </linearGradient>
   </svg>
 
+  <script src="js/maskPhone.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

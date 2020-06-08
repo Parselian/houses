@@ -256,6 +256,15 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   activateAccordeon();
 
+  const validateNameInputs = (selector) => {
+    const input = document.querySelector(selector);
+
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/[a-zA-Z]/, '');
+    });
+  };
+  validateNameInputs('#main__input-name');
+
   const sendForm = (selector) => {
     const form = document.querySelector(selector),
           loaderIcon = document.createElement('div'),
