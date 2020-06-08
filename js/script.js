@@ -256,6 +256,87 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   activateAccordeon();
 
+  const sendForm = (selector) => {
+    const form = document.querySelector(selector),
+          loaderIcon = document.createElement('div'),
+          successPopup = document.querySelector('.popup-thanks');
+
+    let intervalId;
+    
+    const loader = () => {
+      let angleCount = 0;
+
+      loaderIcon.style.cssText = `
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 50%;
+        bottom: 40px;
+        border: 2px dotted gray;
+        border-radius: 15px;
+        z-index: 12;
+      `;
+
+      intervalId = setInterval(() => {
+        if( angleCount >= 360 ) {
+          angleCount = 0;
+        }
+
+        loaderIcon.style.transform = `translateX(-50%) rotate(${angleCount}deg)`;
+
+        angleCount++;
+      }, 10);
+
+      form.insertAdjacentElement('beforeend', loaderIcon);
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      loader();
+
+      const formData = new FormData(form);
+
+      let body = {};
+
+      formData.forEach((val, key) => {
+        body[key] = val;
+      });
+
+      return fetch('server.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      })
+        .then((response) => {
+          loaderIcon.remove();
+
+          if (response.status !== 200) {
+            throw new Error('Error! network status not 200');
+          }
+
+          successPopup.classList.add('popup_show');
+        })
+        .catch(error => console.error(error));
+    });
+  };
+  sendForm('#main-form');
+  sendForm('#projects-form');
+  sendForm('#request-form');
+
+  const togglePopup = () => {
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+
+      if (target.matches('.popup__button') || target.matches('.popup')) {
+        target.closest('.popup').classList.remove('popup_show');
+      }
+    });
+  };
+  togglePopup();
+
   const mapInit = () => {
 
     ymaps.ready(init);

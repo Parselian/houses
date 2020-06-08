@@ -128,7 +128,7 @@
         </div>
         <!-- /.main__info -->
 
-        <form action="#" class="form main-form">
+        <form id="main-form" action="server.php" method="POST" class="form main-form">
           <svg class="main-form__bg">
             <use xlink:href="./sprites/sprite.svg#hexagon"></use>
           </svg>
@@ -138,8 +138,8 @@
             вашего дома уже сегодня!
           </div>
           <!-- /.main-form__title -->
-          <input type="text" class="form__input main-form__input" placeholder="Ваше имя" required>
-          <input type="text" class="form__input main-form__input" placeholder="Ваш телефон" required>
+          <input type="text" name="main-form__name" class="form__input main-form__input" placeholder="Ваше имя" required>
+          <input type="text" name="main-form__phone" class="form__input main-form__input" placeholder="Ваш телефон" required>
           <button class="button main-form__button">Заказать смету</button>
           <!-- /.button main-form__button -->
         </form>
@@ -471,7 +471,7 @@
       </div>
       <!-- /.slider -->
 
-      <form action="#" class="projects-form form">
+      <form id="projects-form" action="server.php" method="POST" class="projects-form form">
         <h2 class="projects-form__title form__title">
           Мы готовы разработать для Вас индивидуальный проект дома по Вашим пожеланиям
           Либо использовать для строительства Ваш собственный проект
@@ -482,8 +482,8 @@
         </div>
         <!-- /.projects-form__subtitle form__subtitle -->
         <div class="projects-form__inputs form__inputs">
-          <input type="text" class="projects-form__input form__input" placeholder="Ваше имя">
-          <input type="text" class="projects-form__input form__input" placeholder="Ваш телефон">
+          <input type="text" class="projects-form__input form__input" placeholder="Ваше имя" required>
+          <input type="text" class="projects-form__input form__input" placeholder="Ваш телефон" required>
           <button class="projects-form__button button">
             Заказать <span class="line-break">обратный звонок</span>
           </button>
@@ -849,7 +849,7 @@
 
   <section id="request" class="request">
     <div class="container">
-      <form action="#" class="projects-form form">
+      <form id="request-form" action="server.php" method="POST" class="projects-form form">
         <h2 class="projects-form__title form__title">
           Вы не нашли ответа на свой вопрос? Наши специалисты дадут
           Вам профессиональную консультацию абсолютно бесплатно!
@@ -860,8 +860,8 @@
         </div>
         <!-- /.projects-form__subtitle form__subtitle -->
         <div class="projects-form__inputs form__inputs">
-          <input type="text" class="projects-form__input form__input" placeholder="Ваше имя">
-          <input type="text" class="projects-form__input form__input" placeholder="Ваш телефон">
+          <input type="text" class="projects-form__input form__input" placeholder="Ваше имя" required>
+          <input type="text" class="projects-form__input form__input" placeholder="Ваш телефон" required>
           <button class="projects-form__button button">
             Заказать <span class="line-break">обратный звонок</span>
           </button>

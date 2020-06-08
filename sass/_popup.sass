@@ -1,8 +1,11 @@
 .popup
-  display: none
+  padding: 0
   position: relative
   overflow: hidden
-  z-index: 999999
+  opacity: 0
+  z-index: -999999
+  transition: .3s
+  will-change: opacity, z-index
   &:before
     position: fixed
     content: ''
@@ -11,6 +14,9 @@
     width: 100vw
     height: 100vh
     background-color: rgba(0,0,0,0.5)
+  &_show
+    z-index: 999999
+    opacity: 1
   &__block
     padding: 30px 40px
     position: fixed
